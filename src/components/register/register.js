@@ -13,7 +13,7 @@ class Register extends React.Component {
     } else {
       $('#errorMsg').hide();
 
-      fetch(`http://localhost:5000/user/register`, {
+      fetch(`https://jwtduyhau.herokuapp.com/user/register`, {
         method: 'POST',
         body: JSON.stringify({
             username: e.target.username.value,
@@ -30,7 +30,7 @@ class Register extends React.Component {
         )
         .then(json =>
         {
-            if(json.user!=null) {
+            if(json!=null) {
               const {history} = this.props;
               history.push('/login');
             } else {
